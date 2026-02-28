@@ -10,8 +10,9 @@ from gtts import gTTS  # ✅ NEW
 # Constants
 TEXT_FILE = "Updated1.0.txt"
 INDEX_FILE = "faiss_index.bin"
-EMBEDDINGS_FILE = "embeddings.npy"
-
+EMBEDDINGS_FILE = "embeddings.npy"cd c:\Users\User\Documents\GitHub\BNS-Legal-QA
+python -m venv .venv          # if you don’t already have one
+.venv\Scripts\activate
 # Session state init
 if "index" not in st.session_state:
     st.session_state.index = None
@@ -86,7 +87,7 @@ Relevant Sections from the BNS:
 Now, based on the above, provide a single-paragraph answer that directly addresses the user's concern.
 """
     output = ollama.generate(model="deepseek-r1:1.5b", prompt=prompt)
-    return output['response'].split("</think>")[-1].strip()
+    return output['response'].split("<tool_call>")[-1].strip()
 
 # gTTS function ✅ NEW
 def save_answer_as_mp3(answer_text, filename):
