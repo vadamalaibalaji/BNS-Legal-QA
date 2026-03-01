@@ -10,9 +10,7 @@ from gtts import gTTS  # ✅ NEW
 # Constants
 TEXT_FILE = "Updated1.0.txt"
 INDEX_FILE = "faiss_index.bin"
-EMBEDDINGS_FILE = "embeddings.npy"cd c:\Users\User\Documents\GitHub\BNS-Legal-QA
-python -m venv .venv          # if you don’t already have one
-.venv\Scripts\activate
+EMBEDDINGS_FILE = "embeddings.npy"
 # Session state init
 if "index" not in st.session_state:
     st.session_state.index = None
